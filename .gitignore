@@ -53,4 +53,5 @@ dkms.conf
 
 # Visual Studio related files
 .vs/
+x64/
 debug.log
