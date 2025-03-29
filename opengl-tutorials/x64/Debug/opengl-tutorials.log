@@ -1,0 +1,7 @@
+﻿  main.cpp
+C:\OpenGL\includes\GLFW\glfw3.h(3235,1): warning C4819: The file contains a character that cannot be represented in the current code page (949). Save the file in Unicode format to prevent data loss
+  (compiling source file 'main.cpp')
+  
+  opengl-tutorials.vcxproj -> C:\wkspaces\opengl\opengl-tutorials\x64\Debug\opengl-tutorials.exe
+  'pwsh.exe'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는
+  배치 파일이 아닙니다.
