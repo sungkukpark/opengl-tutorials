@@ -5,6 +5,8 @@
 #include <glad/glad.h>	// 함수 포인터 매니저 GLAD
 #include <GLFW/glfw3.h>	// GLFW; Graphics Library Framework" C로 작성된 OpenGL, OpenGL ES, Vulkan을 위한 오픈소스, 멀티플랫폼, 데스크탑 라이브러리
 
+void processInput(GLFWwindow* window);
+
 int main()
 {
 	glfwInit();										// GLFW 초기화
@@ -39,10 +41,24 @@ int main()
 
 	while (!glfwWindowShouldClose(window))	// GLFW가 윈도우가 닫히는 명령이 발생했는지 확인하고 반환 값이 참(true)이면 while 루프를 탈출한다
 	{
+		// ESC 키로 종료 신호 입력을 받는 이벤트 폴링(Event polling) 구간
+		processInput(window);
+
+		// 이 구간에 앞으로 렌더링 커맨드(rendering commands)가 추가될 예정이다
+		// ...
+
 		glfwSwapBuffers(window);			// 이중 버퍼(Double buffer) 기법 적용. 후면(back) 버퍼가 그려지기 전까지는 전면(front) 버퍼를 보여준다
-		glfwPollEvents();					// 키보드나 마우스 입력이 발생했는지를 확인하는 이벤트 폴링(Event polling)
+		glfwPollEvents();					// 이외에 키보드나 마우스 입력이 발생했는지를 확인하는 이벤트 폴링
 	}
 
 	glfwTerminate();	// 할당된 GLFW 자원들을 정리/삭제함
 	return 0;			// 정상적으로 프로그램이 종료되었음을 알림
+}
+
+void processInput(GLFWwindow* window)
+{
+	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+	{
+		glfwSetWindowShouldClose(window, true);
+	}
 }
